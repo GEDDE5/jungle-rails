@@ -21,6 +21,37 @@ end
 
 # Let's do this ...
 
+## USERS
+
+puts "Re-creating Users ..."
+
+User.destroy_all
+
+User.create(
+  first_name: "Donald",
+  last_name: "Geddes",
+  email: "the.donald.is@gmail.com",
+  password: "829ev2ef0"
+)
+User.create(
+  first_name: "Hannah",
+  last_name: "Kozma",
+  email: "hanbanan@hotmail.com",
+  password: "038f22ljksf"
+)
+User.create(
+  first_name: "Melissa",
+  last_name: "Webb",
+  email: "webbmiss@gmail.com",
+  password: "sif109nfdkss"
+)
+User.create(
+  first_name: "Jenna",
+  last_name: "Taylor",
+  email: "jjennattaylor@gmail.com",
+  password: "sadf09fsda90"
+)
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
@@ -28,6 +59,7 @@ puts "Finding or Creating Categories ..."
 cat1 = Category.find_or_create_by! name: 'Apparel'
 cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
+
 
 ## PRODUCTS
 

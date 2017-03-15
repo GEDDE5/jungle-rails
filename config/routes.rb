@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
 
+  resource :users, path: "/register", only: [:show, :create]
+  resource :sessions, path: "/login", only: [:show, :create]
+  resource :sessions, path: "/logout", only: [:destroy]
+
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
 
