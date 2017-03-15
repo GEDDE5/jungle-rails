@@ -1,0 +1,20 @@
+<section class="login">
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+            <header class="page-header">
+                <h1>Login</h1>
+            </header>
+            <%= form_tag [:session, :login] do %>
+              <div class="form-group">
+                  <%= label_tag "Email:" %>
+                  <%= email_field_tag :email, nil, class: "form-control" %><br />
+              </div>
+              <div class="form-group">
+                  <%= label_tag "Password:" %>
+                  <%= password_field_tag :password, nil, class: 'form-control' %><br />
+              </div>
+              <%= submit_tag 'Submit', class: 'btn btn-primary' %>
+            <% end %>
+        </div>
+    </div>
+</section>

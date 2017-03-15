@@ -4,7 +4,7 @@
             <header class="page-header">
                 <h1>Login</h1>
             </header>
-            <%= form_tag [:sessions] do %>
+            <%= form_tag [:session, :login] do %>
               <div class="form-group">
                   <%= label_tag "Email:" %>
                   <%= email_field_tag :email, nil, class: "form-control" %><br />

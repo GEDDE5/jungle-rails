@@ -46,9 +46,9 @@
         </li>
           <% if current_user %>
             <li><%= link_to "#{current_user.first_name}", :root %></li>
-            <li><%= link_to "Logout", '/logout', method: :delete %></li>
+            <li><%= link_to "Logout", [:session, :logout], method: :delete %></li>
           <% else %>
-            <li><%= link_to 'Login', [:sessions] %></li>
+            <li><%= link_to 'Login', [:session, :login] %></li>
             <li><%= link_to 'Register', [:users] %></li>
           <% end %>
       </ul>
