@@ -49,7 +49,7 @@
             <li><%= link_to "Logout", [:session, :logout], method: :delete %></li>
           <% else %>
             <li><%= link_to 'Login', [:session, :login] %></li>
-            <li><%= link_to 'Register', [:users] %></li>
+            <li><%= link_to 'Register', :users %></li>
           <% end %>
       </ul>
     </div>
