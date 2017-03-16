@@ -26,7 +26,7 @@
       <div class="col-sm-1">
         &nbsp;
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-7">
         <h4 class="review">Reviews</h4>
         <table class="table table-bordered reviews">
           <thead>
@@ -34,7 +34,9 @@
               <th>Rating</th>
               <th>Description</th>
               <th>Date</th>
-              <th></th>
+              <% if current_user %>
+                <th>&nbsp;</th>
+              <% end %>
             </tr>
           </thead>
           <tbody>
@@ -44,7 +46,7 @@
           </tbody>
         </table>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <h4 class="review">Submit Review</h4>
         <% if current_user %>
           <% flash.each do |key, value| %>
