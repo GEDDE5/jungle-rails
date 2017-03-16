@@ -28,7 +28,7 @@
         <div class="reviews">
           <div class="row">
           <div class="col-sm-8">
-            <h4>Reviews</h4>
+            <h4 class="review">Reviews</h4>
             <table class="table table-bordered reviews">
               <thead>
                 <tr>
@@ -37,12 +37,45 @@
                   <th>Date</th>
                 </tr>
               </thead>
-              <tbody><% console %>
+              <tbody>
                 <% @product.reviews.each do |review| %>
                   <%= render 'review', review: review %>
                 <% end %>
               </tbody>
             </table>
+            <h4 class="review">Submit Review</h4>
+
+            <!-- Start review creation form -->
+            <%= form_for [@product, @review] do |form| %>
+
+              <% if form.object.errors.any? %>
+                <div class="alert alert-danger">
+                  <strong>The following errors prevented saving:</strong>
+                  <ul>
+                    <% form.object.errors.full_messages.each do |error| %>
+                      <li><%= error %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+
+              <div class="form-group">
+                <%= form.label :rating %>
+                <%= form.select(:rating, (2..5).each { |i| i }, prompt: '1') %>
+              </div>
+
+              <div class="form-group">
+                <%= form.label :description %>
+                <%= form.text_area :description, class: "form-control" %>
+              </div>
+
+              <div class="form-group">
+              <%= form.submit 'Submit', class: "btn btn-primary" %>
+              </div>
+
+            <% end %>
+            <!-- End review creation form -->
+
           </div>
           <div class="col-sm-4">
             &nbsp;
