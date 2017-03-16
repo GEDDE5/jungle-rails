@@ -21,7 +21,13 @@ end
 
 # Let's do this ...
 
+# reset primary key sequences
+
+LineItem.destroy_all
+
+
 ## USERS
+
 
 puts "Re-creating Users ..."
 
@@ -115,6 +121,16 @@ cat1.products.create!({
   price: 224.50
 })
 
+puts "Recreating product reviews"
+
+prod1 = Product.first
+prod2 = Product.last
+
+prod1.reviews.create(user_id: 41, rating: 5, description: "v v good")
+prod1.reviews.create(user_id: 40, rating: 1, description: "worsty")
+prod2.reviews.create(user_id: 42, rating: 3, description: "just a bit better than avg")
+prod2.reviews.create(user_id: 43, rating: 4, description: "pree good")
+
 
 cat2.products.create!({
   name:  'Modern Skateboards',
@@ -163,6 +179,9 @@ cat3.products.create!({
   quantity: 0,
   price: 2_483.75
 })
+
+## Reviews
+
 
 
 puts "DONE!"
