@@ -1,0 +1,13 @@
+<tr>
+  <td>
+    <% (1..review.rating).each do |i| %>
+      <i class="fa fa-star" aria-hidden="true"></i>
+    <% end %>
+  </td>
+  <td>
+    <%= review.description %>
+  </td>
+  <td>
+    <%= review.created_at.strftime('%Y-%m-%d at %H:%M') %>
+  </td>
+</tr>

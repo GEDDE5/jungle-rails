@@ -19,7 +19,7 @@
           <th>Price</th>
         </tr>
       </thead>
-      <tbody><% console %>
+      <tbody>
         <% @order_total = 0 %>
         <% @order.line_items.each do |item| %>
           <%= render 'order', item: item %>

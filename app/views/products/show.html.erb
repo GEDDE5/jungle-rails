@@ -13,6 +13,7 @@
       </div>
 
       <div class="col-sm-8">
+
         <dl class="dl-horizontal">
           <dt>Name</dt>
           <dd><%= @product.name %></dd>
@@ -23,9 +24,33 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
-      </div>
-    </div>
 
+        <div class="reviews">
+          <div class="row">
+          <div class="col-sm-8">
+            <h4>Reviews</h4>
+            <table class="table table-bordered reviews">
+              <thead>
+                <tr>
+                  <th>Rating</th>
+                  <th>Description</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody><% console %>
+                <% @product.reviews.each do |review| %>
+                  <%= render 'review', review: review %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-sm-4">
+            &nbsp;
+          </div>
+        </div>
+      </div>
+
+      </div>
   </article>
 
 </section>
