@@ -5,9 +5,9 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
 
     if @review.save
-      redirect_to product_path(id: params[:product_id])
+      redirect_to product_path(id: params[:product_id]), notice: "Review successfully submitted"
     else
-      redirect_to product_path(id: params[:product_id])
+      redirect_to product_path(id: params[:product_id]), notice: "Review incomplete: please choose a rating"
     end
   end
 

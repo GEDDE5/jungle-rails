@@ -53,9 +53,11 @@
       </div>
 
       <div class="col-sm-4">
-
          <h4 class="review">Submit Review</h4>
-          <!-- Start review creation form -->
+         <% flash.each do |key, value| %>
+           <p class="<%= key %>"><%= value %></p>
+         <% end %>
+         <!-- Start review creation form -->
           <%= form_for [@product, @review] do |form| %>
 
             <% if form.object.errors.any? %>
