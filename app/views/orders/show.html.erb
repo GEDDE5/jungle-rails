@@ -19,10 +19,10 @@
           <th>Price</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody><% console %>
         <% @order_total = 0 %>
-        <% cart.each do |product_id, details| %>
-          <%= render 'order', product_id: product_id, details: details %>
+        <% @order.line_items.each do |item| %>
+          <%= render 'order', item: item %>
         <% end %>
       </tbody>
       <tfoot>
