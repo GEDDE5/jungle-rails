@@ -10,4 +10,9 @@
   <td>
     <%= time_ago_in_words(review.created_at) %> ago
   </td>
+  <td>
+  <%= link_to product_review_path(review.product_id, review.id), method: :delete do %>
+    <i class="fa fa-times" aria-hidden="true"></i>
+  <% end %>
+  </td>
 </tr>

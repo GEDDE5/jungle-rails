@@ -11,13 +11,14 @@ class ReviewsController < ApplicationController
     end
   end
 
-  private
-
-  def new_review
+  def destroy
+    @review = Product.find(params[:product_id]).reviews.find(params[:id])
+    @review.destroy
+    redirect_to product_path(id: params[:product_id])
   end
 
+  private
   def review_params
     params.require(:review).permit(:rating, :description, :product_id, :user_id)
   end
-
 end
