@@ -35,7 +35,7 @@
               <th>Rating</th>
               <th>Description</th>
               <th>Created</th>
-              <% if current_user && @product.reviews.exists?(user_id: current_user.id) %>
+              <% if current_user && has_reviews?(@product.id, current_user.id) %>
                 <th>&nbsp;</th>
               <% end %>
             </tr>
@@ -55,16 +55,6 @@
           <% end %>
           <!-- Start review creation form -->
           <%= form_for [@product, @review] do |form| %>
-            <% if form.object.errors.any? %>
-              <div class="alert alert-danger">
-                <strong>The following errors prevented saving:</strong>
-                <ul>
-                  <% form.object.errors.full_messages.each do |error| %>
-                    <li><%= error %></li>
-                  <% end %>
-                </ul>
-              </div>
-            <% end %>
             <div class="form-group">
               <%= form.label :rating %>
               <%= form.select(:rating, (1..5).each { |i| i }, prompt: '#') %>

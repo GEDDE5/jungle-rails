@@ -15,6 +15,8 @@ class ApplicationController < ActionController::Base
 
   private
 
+  ## Cart
+
   def cart
     # value = cookies[:cart] || JSON.generate({})
     @cart ||= cookies[:cart].present? ? JSON.parse(cookies[:cart]) : {}
@@ -28,5 +30,12 @@ class ApplicationController < ActionController::Base
     }
     cookies[:cart]
   end
+
+  ## Reviews
+
+  def has_reviews?(product_id, user_id)
+    Product.find(product_id).reviews.exists?(user_id: user_id)
+  end
+  helper_method :has_reviews?
 
 end
