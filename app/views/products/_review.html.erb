@@ -1,13 +1,13 @@
 <tr>
   <td>
-    <% if User.exists?(review.user_id) %>
-      <%= User.find(review.user_id).first_name %>
+    <% if review.user %>
+      <%= review.user.first_name %>
     <% else %>
       ?
     <% end %>
   </td>
   <td>
-    <% (1..review.rating).each do |i| %>
+    <% review.rating.times do %>
       <i class="fa fa-star" aria-hidden="true"></i>
     <% end %>
   </td>
@@ -21,7 +21,7 @@
   <td class="no-border-right">
     <%= time_ago_in_words(review.created_at) %> ago
   </td>
-  <% if current_user && has_reviews?(review.product_id, current_user.id) %>
+  <% if current_user && has_reviewed?(review.product_id) %>
     <td class="remove">
       <% if current_user.id == review.user_id %>
         <%= link_to product_review_path(review.product_id, review.id), method: :delete do %>
