@@ -21,7 +21,7 @@
   <td class="no-border-right">
     <%= time_ago_in_words(review.created_at) %> ago
   </td>
-  <% if current_user && has_reviewed?(review.product_id, current_user.id) %>
+  <% if current_user && has_reviewed?(review.product_id) %>
     <td class="remove">
       <% if current_user.id == review.user_id %>
         <%= link_to product_review_path(review.product_id, review.id), method: :delete do %>

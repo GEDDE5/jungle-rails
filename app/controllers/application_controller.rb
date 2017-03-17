@@ -33,8 +33,8 @@ class ApplicationController < ActionController::Base
 
   ## Reviews
 
-  def has_reviewed?(product_id, user_id)
-    Product.find(product_id).reviews.exists?(user_id: user_id)
+  def has_reviewed?(product_id)
+    Product.find(product_id).reviews.exists?(user_id: @current_user.id)
   end
   helper_method :has_reviewed?
 
