@@ -7,7 +7,7 @@
     <% end %>
   </td>
   <td>
-    <% (1..review.rating).each do |i| %>
+    <% review.rating.times do %>
       <i class="fa fa-star" aria-hidden="true"></i>
     <% end %>
   </td>
