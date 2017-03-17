@@ -37,9 +37,9 @@
                 <th>Reviewer</th>
                 <th>Rating</th>
                 <th>Description</th>
-                <th>Created</th>
+                <th class="no-border-right">Created</th>
                 <% if current_user && has_reviews?(@product.id, current_user.id) %>
-                  <th>&nbsp;</th>
+                  <th class="remove">&nbsp;</th>
                 <% end %>
               </tr>
             </thead>

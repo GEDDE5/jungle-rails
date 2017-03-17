@@ -93,6 +93,15 @@ main section.products-show {
     padding-top: 15px;
   }
 
+  .remove {
+    border-left: none;
+    text-align: center;
+  }
+
+  .no-border-right {
+    border-right: none;
+  }
+
   .fa-times {
     color: red;
   }
