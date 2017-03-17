@@ -27,6 +27,7 @@ main section.categories-show {
         display: block;
       }
 
+
       footer {
         position: absolute;
         bottom: 0;
@@ -76,6 +77,10 @@ main section.categories-show {
 }
 
 main section.products-show {
+
+  dd.sold-out {
+    color: #C42121;
+  }
 
   .product-detail {
     img.main-img {

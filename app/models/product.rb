@@ -15,4 +15,18 @@ class Product < ActiveRecord::Base
     self.quantity == 0
   end
 
+  def overall_rating
+    overall = 0.to_f
+    count = 0
+    self.reviews.each do | review |
+      overall += review.rating
+      count += 1
+    end
+    unless count == 0
+      "#{(overall / count).round(2)} out of 5"
+    else
+      "Not yet rated"
+    end
+  end
+
 end
