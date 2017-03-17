@@ -1,5 +1,12 @@
 <tr>
   <td>
+    <% if User.exists?(review.user_id) %>
+      <%= User.find(review.user_id).first_name %>
+    <% else %>
+      ?
+    <% end %>
+  </td>
+  <td>
     <% (1..review.rating).each do |i| %>
       <i class="fa fa-star" aria-hidden="true"></i>
     <% end %>
