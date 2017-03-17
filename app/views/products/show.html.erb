@@ -31,11 +31,11 @@
         <table class="table table-bordered reviews">
           <thead>
             <tr>
-              <th>Name</th>
+              <th>Reviewer</th>
               <th>Rating</th>
               <th>Description</th>
-              <th>Date</th>
-              <% if current_user %>
+              <th>Created</th>
+              <% if current_user && @product.reviews.exists?(user_id: current_user.id) %>
                 <th>&nbsp;</th>
               <% end %>
             </tr>
