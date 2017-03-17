@@ -15,9 +15,15 @@
           <dt>Description</dt>
           <dd><%= @product.description %></dd>
           <dt>Quantity</dt>
-          <dd><% if @product.sold_out? %>Sold out<% else %><%= @product.quantity %><% end %></dd>
+          <% if @product.sold_out? %>
+          <dd class="sold-out">Sold out</dd>
+          <% else %>
+          <dd><%= @product.quantity %></dd>
+          <% end %>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+          <dt>User Rating</dt>
+          <dd><%= @product.overall_rating %></dd>
         </dl>
       </div>
     </div>
