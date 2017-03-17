@@ -8,7 +8,7 @@ class Session::LoginsController < ApplicationController
       session[:user_id] = user.id
       redirect_to :root, notice: 'Logged in successfully'
     else
-      redirect_to :show, notice: "Login unsuccessful"
+      redirect_to [:session, :login], notice: "Login unsuccessful"
     end
   end
 
