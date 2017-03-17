@@ -15,7 +15,7 @@
           <dt>Description</dt>
           <dd><%= @product.description %></dd>
           <dt>Quantity</dt>
-          <dd><%= @product.quantity %></dd>
+          <dd><% if @product.sold_out? %>Sold out<% else %><%= @product.quantity %><% end %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
