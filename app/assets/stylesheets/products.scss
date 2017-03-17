@@ -84,4 +84,17 @@ main section.products-show {
   }
 }
 
+.reviews {
+  padding-top: 15px;
+
+  .review-header {
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+    padding-top: 15px;
+  }
+
+  .fa-times {
+    color: red;
+  }
+}
 
