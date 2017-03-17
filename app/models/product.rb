@@ -15,18 +15,30 @@ class Product < ActiveRecord::Base
     self.quantity == 0
   end
 
+  #  TODO revise the review rating logic to reduce sql overhead
+
+  def review_count
+    self.reviews.count
+  end
+
+  def has_reviews?
+    review_count > 0
+  end
+
   def overall_rating
     overall = 0.to_f
-    count = 0
-    self.reviews.each do | review |
+    self.reviews.each do |review|
       overall += review.rating
-      count += 1
     end
-    unless count == 0
-      "#{(overall / count).round(2)} out of 5"
-    else
-      "Not yet rated"
-    end
+    (overall / review_count).round(2)
+  end
+
+  def needs_half_star?
+    (0.25..0.75) === (overall_rating % 1) ? true : false
+  end
+
+  def star_rating
+    (0..0.75) === (overall_rating % 1) ? overall_rating.floor : overall_rating.ceil
   end
 
 end

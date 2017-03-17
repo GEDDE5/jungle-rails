@@ -63,6 +63,11 @@ main section.categories-show {
         font-size: 0.8em;
       }
 
+      aside.star-rating {
+        position: absolute;
+        top: -25px;
+      }
+
       &:hover {
 
         border-color: #999;
