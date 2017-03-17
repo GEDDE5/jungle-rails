@@ -1,7 +1,7 @@
 <tr>
   <td>
-    <% if User.exists?(review.user_id) %>
-      <%= User.find(review.user_id).first_name %>
+    <% if review.user %>
+      <%= review.user.first_name %>
     <% else %>
       ?
     <% end %>
