@@ -12,7 +12,11 @@
     <% end %>
   </td>
   <td>
-    <%= review.description %>
+    <% if review.has_description? %>
+      <%= review.description %>
+    <% else %>
+    <i>No description</i>
+    <% end %>
   </td>
   <td class="no-border-right">
     <%= time_ago_in_words(review.created_at) %> ago
