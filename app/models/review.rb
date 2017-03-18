@@ -9,4 +9,5 @@ class Review < ActiveRecord::Base
   def has_description?
     self.description != ""
   end
+
 end
