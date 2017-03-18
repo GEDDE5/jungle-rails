@@ -1,0 +1,25 @@
+<tr>
+  <td>
+    <%= review.product.name %>
+  </td>
+  <td>
+    <% review.rating.times do %>
+      <i class="fa fa-star" aria-hidden="true"></i>
+    <% end %>
+  </td>
+  <td>
+    <% if review.has_description? %>
+      <%= review.description %>
+    <% else %>
+      <i>No description</i>
+    <% end %>
+  </td>
+  <td class="no-border-right">
+    <%= time_ago_in_words(review.created_at) %> ago
+  </td>
+  <td class="remove">
+    <%= link_to product_review_path(review.product_id, review.id), method: :delete do %>
+      <i class="fa fa-times" aria-hidden="true"></i>
+    <% end %>
+  </td>
+</tr>

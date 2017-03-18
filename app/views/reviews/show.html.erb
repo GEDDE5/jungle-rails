@@ -1,0 +1,21 @@
+<section class="reviews-history">
+  <header class="page-header">
+    <h1>Review History</h1>
+  </header>
+  <table class="table table-bordered reviews-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Rating</th>
+        <th>Description</th>
+        <th class="no-border-right">Created</th>
+        <th class="remove">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reviews.reverse.each do |review| %>
+        <%= render 'review', review: review %>
+      <% end %>
+    </tbody>
+  </table>
+</section>
